@@ -542,7 +542,7 @@ def top_chart_registered_user(table_name, state):
 
     with col2:
         fig_amount_2= px.bar(df_2, x="districts", y="registereduser", title="LAST 10 REGISTERED USER", hover_name= "districts",
-                            color_discrete_sequence=px.colors.sequential.Aggrnyl_r, height= 650,width= 600)
+                            color_discrete_sequence=px.colors.sequential.Agsunset_r, height= 650,width= 600)
         st.plotly_chart(fig_amount_2)
 
     #plot_3
@@ -559,7 +559,7 @@ def top_chart_registered_user(table_name, state):
     df_3= pd.DataFrame(table_3, columns=("districts", "registereduser"))
 
     fig_amount_3= px.bar(df_3, y="districts", x="registereduser", title="AVERAGE OF REGISTERED USER", hover_name= "districts", orientation= "h",
-                        color_discrete_sequence=px.colors.sequential.Bluered_r, height= 800,width= 1000)
+                        color_discrete_sequence=px.colors.sequential.haline_r, height= 800,width= 1000)
     st.plotly_chart(fig_amount_3)
 
 #sql connection
@@ -590,7 +590,7 @@ def top_chart_appopens(table_name, state):
     with col1:
 
         fig_amount= px.bar(df_1, x="districts", y="appopens", title="TOP 10 OF APPOPENS", hover_name= "districts",
-                            color_discrete_sequence=px.colors.sequential.Aggrnyl, height= 650,width= 600)
+                            color_discrete_sequence=px.colors.sequential.Darkmint_r, height= 650,width= 600)
         st.plotly_chart(fig_amount)
 
     #plot_2
@@ -665,6 +665,7 @@ def top_chart_registered_users(table_name):
                 GROUP BY states
                 ORDER BY registeredusers
                 LIMIT 10;'''
+    
 
     cursor.execute(query2)
     table_2= cursor.fetchall()
@@ -917,7 +918,8 @@ elif select == "DATA EXPLORATION":
           top_user_plot_2(top_user_Y, states)
 
 elif select == "TOP CHARTS":
-   question= st.selectbox("Select the Question",["1. Transaction Amount and Count of Aggregated Insurance",
+    
+    question= st.selectbox("Select the Question",["1. Transaction Amount and Count of Aggregated Insurance",
                                                     "2. Transaction Amount and Count of Map Insurance",
                                                     "3. Transaction Amount and Count of Top Insurance",
                                                     "4. Transaction Amount and Count of Aggregated Transaction",
